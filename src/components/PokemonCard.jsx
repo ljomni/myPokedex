@@ -1,15 +1,5 @@
-import React from 'react';
 
-const PokemonCard = ({ name, type }) => {
-  const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png';
 
-  return (
-    <figure>
-      <img src={imageUrl} alt="Bulbasaur" />
-      <figcaption>Bulbasaur</figcaption>
-    </figure>
-  );
-};
   
 
 const pokemonList = [
@@ -23,8 +13,11 @@ const pokemonList = [
   },
 ];
 
-const pokemonCard = () => {
-  const pokemon = pokemonList[1]; 
+const PokemonCard = (props) => {
+  console.log(props);
+  const { pokemon } = props;
+
+
 
   return (
     <div className="pokemon-card">
@@ -37,5 +30,6 @@ const pokemonCard = () => {
     </div>
   );
 };
+
 
 export default PokemonCard;

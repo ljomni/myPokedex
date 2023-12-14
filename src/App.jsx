@@ -8,7 +8,7 @@ function App() {
     return (
       <div className="app">
         <div>
-          <PokemonCard azerty name="Bulbasaur" type="Grass" />
+          <PokemonCard name="Bulbasaur" type="Grass" />
         </div>
       </div>
     );

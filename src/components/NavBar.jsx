@@ -1,14 +1,13 @@
 import React from 'react';
 
-const NavBar = ({ handlePrevClick, handleNextClick, isPrevDisabled, isNextDisabled }) => {
+const NavBar = ({ pokemonList, handlePokemonClick  }) => {
   return (
     <div>
-      <button onClick={handlePrevClick} disabled={isPrevDisabled}>
-        Précédent
-      </button>
-      <button onClick={handleNextClick} disabled={isNextDisabled}>
-        Suivant
-      </button>
+      {pokemonList.map((pokemon, index) => (
+        <button key={index} onClick={() => handlePokemonClick(index)}>
+          {pokemon.name}
+        </button>
+      ))}
     </div>
   );
 };

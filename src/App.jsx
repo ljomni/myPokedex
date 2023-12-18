@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import './App.css'
 
 import React from 'react';
@@ -6,9 +6,24 @@ import PokemonCard from './components/PokemonCard';
 
 const pokemonList = [
   {
-    name: 'bulbasaur',
+    name: "bulbasaur",
     imgSrc:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    name: "charmander",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+  },
+  {
+    name: "squirtle",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+  },
+  {
+    name: "pikachu",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   },
   {
     name: 'mew',
@@ -17,11 +32,28 @@ const pokemonList = [
 
 
 function App() {
-  const pokemon = pokemonList[0]; 
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+  const handleNextClick = () => {
+    setPokemonIndex((prevIndex) => prevIndex + 1);
+  };
+
+  const handlePrevClick = () => {
+    setPokemonIndex((prevIndex) => prevIndex - 1);
+  };
     return (
       <div className="app">
         <div>
-          <PokemonCard pokemon={pokemon} />
+        <button onClick={handlePrevClick} disabled={pokemonIndex === 0}>
+        Précédent
+      </button>
+      <button
+        onClick={handleNextClick}
+        disabled={pokemonIndex === pokemonList.length - 1}
+      >
+        Suivant
+      </button>
+
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
         </div>
       </div>
     );
